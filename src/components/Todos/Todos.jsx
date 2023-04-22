@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
+import { TodoForm } from 'components/TodoForm/TodoForm';
+import React, { Component } from 'react';
 
 export default class Todos extends Component {
   state = {
-    todos: [
-      { id: 'id-1', name: 'todo-1', isChecked: false, category: 'car', }
-    ],
-  };
-  
-  addTodo = (newTodo) => {
-    this.setState(prevState => ({
-      todos: [...prevState.todos, newTodo]
-    }))
+    todos: [{ id: 'id-1', name: 'todo-1', isChecked: false, category: 'car' }],
   };
 
-  deletTodo = (id) => {
+  addTodo = newTodo => {
+    this.setState(prevState => ({
+      todos: [...prevState.todos, newTodo],
+    }));
+  };
+
+  deletTodo = id => {
     this.setState(prevState => {
       const index = prevState.todos.findIndex(item => item.id === id);
       const prevStateTodos = [...prevState.todos];
@@ -21,13 +20,11 @@ export default class Todos extends Component {
 
       return {
         todos: prevStateTodos,
-      }
-    })
+      };
+    });
   };
 
-    render() {
-      return (
-        <div>Todos</div>
-      )
-    }
-};
+  render() {
+    return <TodoForm addTodo={this.addTodo} />;
+  }
+}
