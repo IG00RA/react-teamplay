@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-teamplay/static/css/main.7acaea2f.css",
+    "main.js": "/react-teamplay/static/js/main.a96545b5.js",
+    "index.html": "/react-teamplay/index.html",
+    "main.7acaea2f.css.map": "/react-teamplay/static/css/main.7acaea2f.css.map",
+    "main.a96545b5.js.map": "/react-teamplay/static/js/main.a96545b5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.a96545b5.js"
+  ]
+}
