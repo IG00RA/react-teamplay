@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
-import { Button, Select } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { nanoid } from 'nanoid';
 
 export const TodoForm = ({ addTodo }) => (

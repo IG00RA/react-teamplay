@@ -1,4 +1,5 @@
 import { TodoForm } from 'components/TodoForm/TodoForm';
+import { TodoList } from 'components/TodoList/TodoList';
 import React, { Component } from 'react';
 
 export default class Todos extends Component {
@@ -12,7 +13,7 @@ export default class Todos extends Component {
     }));
   };
 
-  deletTodo = id => {
+  deleteTodo = id => {
     this.setState(prevState => {
       const index = prevState.todos.findIndex(item => item.id === id);
       const prevStateTodos = [...prevState.todos];
@@ -25,6 +26,16 @@ export default class Todos extends Component {
   };
 
   render() {
-    return <TodoForm addTodo={this.addTodo} />;
+    const {
+      addTodo,
+      deleteTodo,
+      state: { todos },
+    } = this;
+    return (
+      <div>
+        <TodoForm addTodo={addTodo} />
+        <TodoList onDelete={deleteTodo} items={todos} />
+      </div>
+    );
   }
 }
