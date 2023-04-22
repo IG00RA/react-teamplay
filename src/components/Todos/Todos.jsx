@@ -25,16 +25,37 @@ export default class Todos extends Component {
     });
   };
 
+  handleIsChecked = id => {
+    this.setState(prevState => {
+      const index = prevState.todos.findIndex(item => item.id === id);
+      const prevStateTodos = [...prevState.todos];
+      const prevItem = prevState.todos[index];
+      prevStateTodos.splice(index, 1, {
+        ...prevItem,
+        isChecked: !prevItem.isChecked,
+      });
+
+      return {
+        todos: prevStateTodos,
+      };
+    });
+  };
+
   render() {
     const {
       addTodo,
       deleteTodo,
       state: { todos },
+      handleIsChecked,
     } = this;
     return (
       <div>
         <TodoForm addTodo={addTodo} />
-        <TodoList onDelete={deleteTodo} items={todos} />
+        <TodoList
+          onDelete={deleteTodo}
+          items={todos}
+          handleIsChecked={handleIsChecked}
+        />
       </div>
     );
   }
