@@ -1,16 +1,19 @@
+import { ChakraBaseProvider, extendBaseTheme } from '@chakra-ui/react'
+import chakraTheme from '@chakra-ui/theme'
+import Todos from './Todos/Todos';
+
+const { Button } = chakraTheme.components
+
+const theme = extendBaseTheme({
+  components: {
+    Button,
+  },
+})
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+    <ChakraBaseProvider theme={theme}>
+      <Todos/>
+    </ChakraBaseProvider>
+  )
 };
